@@ -1,0 +1,16 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
+ xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" 
+ xmlns:f="/lib/form">
+  <!--
+    This jelly script is used for per-project configuration.
+
+    See global.jelly for a general discussion about jelly script.
+  -->
+
+  <l:layout norefesh="true">
+    <l:main-panel>
+        <h1> what up bitches </h1>
+    </l:main-panel>
+  </l:layout>
+
+</j:jelly>

@@ -1,0 +1,38 @@
+<j:jelly xmlns:j="jelly:core" xmlns:st="jelly:stapler"
+ xmlns:d="jelly:define" xmlns:l="/lib/layout" xmlns:t="/lib/hudson" 
+ xmlns:f="/lib/form">
+     
+     <j:set var="views" value="${it.owner.views}" />
+     <j:set var="currentView" value="${it}" />
+     
+     <l:layout norefesh="true">
+        <st:include page="sidepanel.jelly" />
+        <l:main-panel>
+            <j:choose>
+                <j:when test="${empty(it.items)}">
+                    <j:if test="${!empty(app.items)}">
+                        <st:include page="viewTabs.jelly" it="${it.owner.viewsTabBar}" />
+                    </j:if>
+                    <st:include page="noJob.jelly" />
+                </j:when>
+                <j:otherwise>
+                    <st:include page="viewTabs.jelly" it="${it.owner.viewsTabBar}" />
+                    <j:set var="jobs" value="${it.items}"/>
+                    <t:projectView jobs="${jobs}" jobBaseUrl="" showViewTabs="true" columnExtensions="${it.columns}"/>
+                </j:otherwise>
+            </j:choose>
+        
+            <h1> what up fools </h1>
+            
+            <l:tabBar/>
+            
+            <j:forEach var="myVar" items="${it.jobList}">
+                <p>${myVar.name}  -  ${myVar.remoteUrl}</p>
+            </j:forEach>
+            
+            
+        </l:main-panel>
+        
+    </l:layout>
+
+</j:jelly>

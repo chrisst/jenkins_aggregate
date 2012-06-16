@@ -46,7 +46,7 @@ public class HelloWorldBuilder extends Builder {
      * We'll use this from the <tt>config.jelly</tt>.
      */
     public String getName() {
-        return name;
+        return name;    
     }
 
     @Override
